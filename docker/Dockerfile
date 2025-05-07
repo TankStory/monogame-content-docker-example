@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM mcr.microsoft.com/dotnet/sdk:8.0-bookworm-slim
 
 
 ###########################
@@ -6,7 +6,6 @@ FROM ubuntu:24.04
 
 RUN apt-get update && \
     apt-get install -y \
-      dotnet-sdk-8.0 \
       wget \
       curl \
       gpg \
@@ -24,9 +23,9 @@ RUN dpkg --add-architecture i386
 RUN mkdir -pm755 /etc/apt/keyrings && \
     wget -O - https://dl.winehq.org/wine-builds/winehq.key | gpg --dearmor -o /etc/apt/keyrings/winehq-archive.key -
 
-RUN wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/noble/winehq-noble.sources
+RUN wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/debian/dists/bookworm/winehq-bookworm.sources
 
-RUN apt update && apt install -y --install-recommends winehq-stable=10.0.0.0~noble-1
+RUN apt update && apt install -y --install-recommends winehq-stable=10.0.0.0~bookworm-1
 
 RUN WINEARCH=win64 WINEPREFIX=/root/.winemonogame winecfg
 RUN echo export WINEPREFIX=/root/.winemonogame >> /root/.bashrc
