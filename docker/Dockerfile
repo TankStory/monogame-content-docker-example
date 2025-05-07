@@ -26,7 +26,7 @@ RUN mkdir -pm755 /etc/apt/keyrings && \
 
 RUN wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/noble/winehq-noble.sources
 
-RUN apt update && apt install -y --install-recommends winehq-stable
+RUN apt update && apt install -y --install-recommends winehq-stable=10.0.0.0~noble-1
 
 RUN WINEARCH=win64 WINEPREFIX=/root/.winemonogame winecfg
 RUN echo export WINEPREFIX=/root/.winemonogame >> /root/.bashrc
