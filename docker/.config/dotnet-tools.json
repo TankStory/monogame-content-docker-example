@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "dotnet-mgcb": {
+      "version": "3.8.3",
+      "commands": [
+        "mgcb"
+      ]
+    },
+    "dotnet-mgfxc": {
+      "version": "3.8.3",
+      "commands": [
+        "mgfxc"
+      ]
+    }
+  }
+}

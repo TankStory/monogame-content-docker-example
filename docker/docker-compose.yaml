@@ -1,0 +1,8 @@
+services:
+  monogame-content-example:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../src/:/src/
+    entrypoint: /src/build-content.sh
